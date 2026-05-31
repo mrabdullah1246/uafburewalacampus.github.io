@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Programs - University of Agriculture Faisalabad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .top-header {
+            background-color: #2c5f2d;
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+        }
+
+        .university-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .university-slogan {
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .header-tools {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-tools a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .header-tools a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            background-color: #204021;
+            padding: 0 5%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Main Content Styles */
+        .page-title {
+            background: linear-gradient(rgba(44, 95, 45, 0.8), rgba(44, 95, 45, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .programs-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .programs-intro h2 {
+            color: #2c5f2d;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .programs-intro p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .degree-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .degree-category {
+            background-color: white;
+            border: 2px solid #2c5f2d;
+            color: #2c5f2d;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .degree-category:hover,
+        .degree-category.active {
+            background-color: #2c5f2d;
+            color: white;
+        }
+
+        .degree-category i {
+            font-size: 1.2rem;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-header {
+            background-color: #2c5f2d;
+            color: white;
+            padding: 20px;
+        }
+
+        .program-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .program-department {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .program-body {
+            padding: 20px;
+        }
+
+        .program-details {
+            margin-bottom: 15px;
+        }
+
+        .program-detail {
+            display: flex;
+            margin-bottom: 8px;
+        }
+
+        .program-detail i {
+            color: #2c5f2d;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .program-description {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .program-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-align: center;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background-color: #2c5f2d;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #204021;
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #2c5f2d;
+            border: 1px solid #2c5f2d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .program-highlights {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .highlights-title {
+            text-align: center;
+            color: #2c5f2d;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight-card i {
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 15px;
+        }
+
+        .highlight-card h3 {
+            color: #2c5f2d;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #2c5f2d;
+            color: white;
+            padding: 40px 5% 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ffc107;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ffc107;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .top-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .header-tools {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-actions {
+                flex-direction: column;
+            }
+
+            .degree-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .degree-category {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="top-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="UAF Logo" class="logo">
+                <div>
+                    <div class="university-name">University of Agriculture Faisalabad</div>
+                    <div class="university-slogan">Where Agriculture Meets Innovation</div>
+                </div>
+            </div>
+            <div class="header-tools">
+                <a href="https://lms.uaf.edu.pk/" target="_blank"><i class="fas fa-sign-in-alt"></i> Student LMS
+                    Login</a>
+                <a href="https://muazshaban.vercel.app/cgpa-calculator/auto" target="_blank"><i
+                        class="fa-solid fa-calculator"></i> CGPA Calculator</a>
+            </div>
+        </div>
+        <nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://web.uaf.edu.pk/Contents/downloads/organization_chart.pdf" target="_blank">About
+                    </a></li>
+                <li><a href="https://lms.uaf.edu.pk/" target="_blank">Academics </a> </li>
+                <li><a href="https://uaf.edu.pk/uaf_research/prj_overview.html" target="_blank">Research</a></li>
+                <li><a href="Faculty.html">Faculty & Staff</a></li>
+                <li><a href="UGFORM.html">UG-Form Submission</a></li>
+                <li><a href="contactfom.html" target="_blank">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="page-title">
+            <h1>Academic Programs</h1>
+            <p>Explore our diverse range of undergraduate, graduate, and doctoral programs across multiple disciplines
+            </p>
+        </section>
+
+        <div class="container">
+            <div class="programs-intro">
+                <h2>Our Educational Offerings</h2>
+                <p>The University of Agriculture Faisalabad offers a comprehensive range of academic programs designed
+                    to prepare students for successful careers in various fields. Our curriculum combines theoretical
+                    knowledge with practical experience to address real-world challenges.</p>
+            </div>
+
+            <div class="degree-categories">
+                <div class="degree-category active" data-category="all">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>All Programs</span>
+                </div>
+                <div class="degree-category" data-category="bs">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>BS Programs</span>
+                </div>
+                <div class="degree-category" data-category="msc">
+                    <i class="fas fa-book"></i>
+                    <span>MSc/MA Programs</span>
+                </div>
+                <div class="degree-category" data-category="ms">
+                    <i class="fas fa-flask"></i>
+                    <span>MS/MPhil Programs</span>
+                </div>
+                <div class="degree-category" data-category="phd">
+                    <i class="fas fa-user-tie"></i>
+                    <span>PhD Programs</span>
+                </div>
+            </div>
+
+            <div class="programs-grid">
+                <!-- BS Programs -->
+                <div class="program-card" data-category="bs">
+                    <div class="program-header">
+                        <h3 class="program-title">BS Computer Science</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Bachelor of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Comprehensive program covering programming, algorithms, data
+                            structures, software engineering, and computer systems.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="bs">
+                    <div class="program-header">
+                        <h3 class="program-title">BS Software Engineering</h3>
+                        <p class="program-department">Department of Software Engineering</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Bachelor of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Focus on software development methodologies, project management,
+                            quality assurance, and software architecture.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="bs">
+                    <div class="program-header">
+                        <h3 class="program-title">BS Information Technology</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Bachelor of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Study of machine learning, Networking, natural language
+                            processing, and Cybersceurity in various domains.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="bs">
+                    <div class="program-header">
+                        <h3 class="program-title">BS Nursing</h3>
+                        <p class="program-department">Department of Nursing</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Bachelor of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Comprehensive nursing education with clinical practice, patient
+                            care, and healthcare management.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="bs">
+                    <div class="program-header">
+                        <h3 class="program-title">BBA (Bachelor of Business Administration)</h3>
+                        <p class="program-department">Department of Business Administration</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Bachelor of Business Administration</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Comprehensive business education covering management, marketing,
+                            finance, and entrepreneurship.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="bs">
+                    <div class="program-header">
+                        <h3 class="program-title">BS Psychology</h3>
+                        <p class="program-department">Department of Psychology</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Bachelor of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 4 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Study of human behavior, cognition, emotion, and mental processes
+                            with practical applications.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MSc/MA Programs -->
+                <div class="program-card" data-category="msc">
+                    <div class="program-header">
+                        <h3 class="program-title">MSc Computer Science</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Master of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Advanced study in computer science with focus on algorithms,
+                            systems, and specialized computing areas.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="msc">
+                    <div class="program-header">
+                        <h3 class="program-title">MA English</h3>
+                        <p class="program-department">Department of English</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Master of Arts</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Advanced study of English literature, linguistics, and critical
+                            theory with research components.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="msc">
+                    <div class="program-header">
+                        <h3 class="program-title">MA Economics</h3>
+                        <p class="program-department">Department of Economics</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Master of Arts</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Advanced economic theory, quantitative methods, and policy
+                            analysis with research applications.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MS/MPhil Programs -->
+                <div class="program-card" data-category="ms">
+                    <div class="program-header">
+                        <h3 class="program-title">MS Computer Science</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Master of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Research-based program focusing on advanced computing topics with
+                            thesis requirement.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="ms">
+                    <div class="program-header">
+                        <h3 class="program-title">MS Data Science</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Master of Science</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Advanced study of data analysis, machine learning, and
+                            statistical methods with research focus.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="ms">
+                    <div class="program-header">
+                        <h3 class="program-title">MPhil Education</h3>
+                        <p class="program-department">Department of Education</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Master of Philosophy</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 2 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Research-focused program in educational theory, policy, and
+                            practice with thesis requirement.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PhD Programs -->
+                <div class="program-card" data-category="phd">
+                    <div class="program-header">
+                        <h3 class="program-title">PhD Computer Science</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Doctor of Philosophy</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 3-5 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Highest level of academic achievement in computer science with
+                            original research contribution.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="phd">
+                    <div class="program-header">
+                        <h3 class="program-title">PhD Artificial Intelligence</h3>
+                        <p class="program-department">Department of Computer Science</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Doctor of Philosophy</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 3-5 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Advanced research in AI algorithms, machine learning, and
+                            intelligent systems development.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="phd">
+                    <div class="program-header">
+                        <h3 class="program-title">PhD Education</h3>
+                        <p class="program-department">Department of Education</p>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-details">
+                            <div class="program-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Degree: Doctor of Philosophy</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Duration: 3-5 Years</span>
+                            </div>
+                            <div class="program-detail">
+                                <i class="fas fa-language"></i>
+                                <span>Language: English</span>
+                            </div>
+                        </div>
+                        <p class="program-description">Highest level of research in educational theory, policy, and
+                            practice with dissertation.</p>
+                        <div class="program-actions">
+                            <a href="https://admissions.uaf.edu.pk/" target="_blank" class="btn btn-primary">Apply Now</a>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-highlights">
+                <h2 class="highlights-title">Why Choose Our Programs?</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <i class="fas fa-flask"></i>
+                        <h3>Research Excellence</h3>
+                        <p>Access to state-of-the-art laboratories and research facilities</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Expert Faculty</h3>
+                        <p>Learn from renowned professors and industry experts</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Industry Partnerships</h3>
+                        <p>Strong connections with leading companies and organizations</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Global Opportunities</h3>
+                        <p>International collaborations and exchange programs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> University of Agriculture Faisalabad, Pakistan</p>
+                <p><i class="fas fa-phone"></i> (041) 9200161</p>
+                <p><i class="fas fa-envelope"></i> info@uaf.edu.pk</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="https://admissions.uaf.edu.pk/" target="_blank">Admissions</a>
+                <a href="https://pms.uaf.edu.pk/" target="_blank">Academic Calendar</a>
+                <a href="https://web.uaf.edu.pk/Library" target="_blank">Library</a>
+                <a href="https://uaf.edu.pk/uaf_research/prj_overview.html" target="_blank">Research Centers</a>
+                <a href="index.html">Alumni</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/edu.uaf.pk" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="contactfom.html"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/uaf_pakistan" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@universityofagriculturefai7274" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/school/university-of-agriculture-faisalabad/posts/?feedView=all"
+                        target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 University of Agriculture Faisalabad. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Program filtering functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const degreeCategories = document.querySelectorAll('.degree-category');
+            const programCards = document.querySelectorAll('.program-card');
+
+            degreeCategories.forEach(category => {
+                category.addEventListener('click', function () {
+                    // Remove active class from all categories
+                    degreeCategories.forEach(cat => cat.classList.remove('active'));
+
+                    // Add active class to clicked category
+                    this.classList.add('active');
+
+                    const categoryValue = this.getAttribute('data-category');
+
+                    programCards.forEach(card => {
+                        if (categoryValue === 'all' || card.getAttribute('data-category') === categoryValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAF Portal - University of Agriculture Faisalabad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #006633;
+            --secondary-color: #FFCC00;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --error-color: #dc3545;
+            --success-color: #28a745;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .university-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .university-slogan {
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .header-tools {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-tools a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .main-container {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 5%;
+        }
+
+        .auth-container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .auth-info {
+            flex: 1;
+            background: linear-gradient(rgba(0, 102, 51, 0.85), rgba(0, 102, 51, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .auth-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .auth-form-container {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .auth-header p {
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 102, 51, 0.2);
+            outline: none;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember-me input {
+            margin-right: 8px;
+        }
+
+        .forgot-password {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00502a;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .divider span {
+            background-color: white;
+            padding: 0 15px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: #555;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .facebook {
+            color: #3b5998;
+        }
+
+        .google {
+            color: #db4437;
+        }
+
+        .microsoft {
+            color: #00a4ef;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .auth-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            color: #666;
+        }
+
+        .logout-btn {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #e6b800;
+        }
+
+        .dashboard-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dashboard-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dashboard-card h3 i {
+            margin-right: 10px;
+        }
+
+        .dashboard-card ul {
+            list-style: none;
+        }
+
+        .dashboard-card ul li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dashboard-card ul li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+            }
+            
+            .auth-info {
+                padding: 30px;
+            }
+            
+            .auth-form-container {
+                padding: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="top-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="UAF Logo" class="logo">
+                <div>
+                    <div class="university-name">University of Agriculture Faisalabad</div>
+                    <div class="university-slogan">Where Agriculture Meets Innovation</div>
+                </div>
+            </div>
+            <div class="header-tools">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href=""><i class="fas fa-info-circle"></i> About</a>
+                <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Login Form (Default) -->
+        <div class="auth-container" id="loginContainer">
+            <div class="auth-info">
+                <h2>Welcome to UAF Portal</h2>
+                <p>Access your academic resources, course materials, and university services through our secure login portal.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Access to online learning resources</li>
+                    <li><i class="fas fa-check-circle"></i> View your academic records</li>
+                    <li><i class="fas fa-check-circle"></i> Register for courses online</li>
+                    <li><i class="fas fa-check-circle"></i> Connect with faculty and peers</li>
+                    <li><i class="fas fa-check-circle"></i> Stay updated with university announcements</li>
+                </ul>
+            </div>
+            <div class="auth-form-container">
+                <div class="auth-header">
+                    <h2>Sign In to Your Account</h2>
+                    <p>Enter your credentials to access the portal</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">Username or Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="loginUsername" class="form-control" placeholder="Enter your username or email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn">Sign In</button>
+                    
+                    <div class="divider">
+                        <span>Or sign in with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <a href="#" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-btn microsoft">
+                            <i class="fab fa-microsoft"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="auth-switch">
+                        Don't have an account? <a href="#" id="showSignup">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Signup Form (Hidden by default) -->
+        <div class="auth-container" id="signupContainer" style="display: none;">
+            <div class="auth-info">
+                <h2>Join UAF Community</h2>
+                <p>Create your account to access all the resources and services offered by University of Agriculture Faisalabad.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Personalized academic dashboard</li>
+                    <li><i class="fas fa-check-circle"></i> Course registration and management</li>
+                    <li><i class="fas fa-check-circle"></i> Access to digital library resources</li>
+                    <li><i class="fas fa-check-circle"></i> Online assignment submission</li>
+                    <li><i class="fas fa-check-circle"></i> University event notifications</li>
+                </ul>
+            </div>
+            <div class="auth-form-container">
+                <div class="auth-header">
+                    <h2>Create Your Account</h2>
+                    <p>Fill in your details to register</p>
+                </div>
+                
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-at"></i>
+                            <input type="text" id="username" class="form-control" placeholder="Choose a username" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userType">I am a</label>
+                        <select id="userType" class="form-control" style="padding-left: 15px;">
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty Member</option>
+                            <option value="staff">Staff</option>
+                            <option value="alumni">Alumni</option>
+                        </select>
+                    </div>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <label for="agreeTerms">I agree to the <a href="#">Terms and Conditions</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="margin-top: 20px;">Create Account</button>
+                    
+                    <div class="auth-switch">
+                        Already have an account? <a href="#" id="showLogin">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard (Hidden by default) -->
+        <div class="dashboard" id="dashboard">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <h2>Welcome, <span id="userDisplayName">User</span>!</h2>
+                    <p>University of Agriculture Faisalabad Portal Dashboard</p>
+                </div>
+                <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+            
+            <div class="dashboard-content">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-book"></i> My Courses</h3>
+                    <ul>
+                        <li>Introduction to Agriculture</li>
+                        <li>Plant Pathology</li>
+                        <li>Soil Science</li>
+                        <li>Agricultural Economics</li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
+                    <ul>
+                        <li>Agricultural Seminar - Oct 15</li>
+                        <li>Midterm Exams - Nov 1-10</li>
+                        <li>Research Conference - Dec 5</li>
+                        <li>Winter Break - Dec 20-Jan 5</li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-bullhorn"></i> Announcements</h3>
+                    <ul>
+                        <li>Course registration opens next week</li>
+                        <li>Library will be closed on Friday</li>
+                        <li>Scholarship applications now available</li>
+                        <li>New research grants announced</li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-chart-line"></i> Academic Progress</h3>
+                    <ul>
+                        <li>Current GPA: 3.75</li>
+                        <li>Completed Credits: 96/130</li>
+                        <li>Next Semester: Spring 2024</li>
+                        <li>Academic Standing: Good</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="uaf.html">Home</a>
+                <a href="uaf.html">About UAF</a>
+                <a href="uaf.html">Academics</a>
+                <a href="uaf.html">Research</a>
+                <a href="uaf.html">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 University of Agriculture Faisalabad. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const loginContainer = document.getElementById('loginContainer');
+        const signupContainer = document.getElementById('signupContainer');
+        const dashboard = document.getElementById('dashboard');
+        const showSignupBtn = document.getElementById('showSignup');
+        const showLoginBtn = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userDisplayName = document.getElementById('userDisplayName');
+
+        // Show Signup Form
+        showSignupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginContainer.style.display = 'none';
+            signupContainer.style.display = 'flex';
+        });
+
+        // Show Login Form
+        showLoginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            signupContainer.style.display = 'none';
+            loginContainer.style.display = 'flex';
+        });
+
+        // Login Form Submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (username === '' || password === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just show the dashboard
+            userDisplayName.textContent = username;
+            loginContainer.style.display = 'none';
+            signupContainer.style.display = 'none';
+            dashboard.style.display = 'block';
+            
+            // Reset form
+            loginForm.reset();
+        });
+
+        // Signup Form Submission
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const userType = document.getElementById('userType').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // Validation
+            if (fullName === '' || email === '' || username === '' || password === '' || confirmPassword === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            if (!agreeTerms) {
+                alert('You must agree to the terms and conditions');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just show a success message and redirect to login
+            alert('Account created successfully! Please login with your credentials.');
+            signupContainer.style.display = 'none';
+            loginContainer.style.display = 'flex';
+            
+            // Reset form
+            signupForm.reset();
+        });
+
+        // Logout Functionality
+        logoutBtn.addEventListener('click', function() {
+            dashboard.style.display = 'none';
+            loginContainer.style.display = 'flex';
+        });
+
+        // Forgot password link
+        document.querySelector('.forgot-password').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Password reset instructions will be sent to your registered email.');
+        });
+    </script>
+</body>
+</html>
